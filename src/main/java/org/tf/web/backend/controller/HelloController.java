@@ -9,6 +9,7 @@ import org.tf.web.backend.service.HelloService;
 import javax.validation.Valid;
 
 @RestController
+@RequestMapping("/hello")
 public class HelloController {
     private HelloService helloService;
 

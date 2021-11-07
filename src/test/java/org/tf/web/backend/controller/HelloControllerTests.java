@@ -31,7 +31,7 @@ public class HelloControllerTests {
         Map<String,String> map= new HashMap<>();
         map.put("username","admin");
         map.put("password","123456");
-        ResponseEntity<String> responseEntity = restTemplate.postForEntity("http://localhost:" + port + "/login", map, String.class);
+        ResponseEntity<String> responseEntity = restTemplate.postForEntity("http://localhost:" + port + "/hello/login", map, String.class);
         Assertions.assertThat(responseEntity.getBody()).asString().isEqualTo("success");
     }
 }
