@@ -23,15 +23,5 @@ public class HelloController {
         return "hello " + username + " !";
     }
 
-    @PostMapping("login")
-    public String login(@Valid @RequestBody LoginDTO loginDTO, BindingResult result){
-        if(result.hasErrors()){
-            result.getAllErrors().forEach(objectError -> System.out.println(objectError.toString()));
-            return "false";
-        }
-        if(helloService.checkUserInfo(loginDTO.getUsername(),loginDTO.getPassword())){
-            return "success";
-        }
-        return "false";
-    }
+
 }
