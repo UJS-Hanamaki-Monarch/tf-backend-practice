@@ -10,4 +10,8 @@ class BackendApplicationTests {
     void contextLoads() {
     }
 
+    public static void main(String[] args) {
+
+    }
+
 }
