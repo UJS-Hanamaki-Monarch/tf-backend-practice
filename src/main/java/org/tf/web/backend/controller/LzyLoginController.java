@@ -8,7 +8,7 @@ import org.tf.web.backend.dto.UserLzy;
 import org.tf.web.backend.dto.UserRepository;
 
 @RestController
-public class LoginController {
+public class LzyLoginController {
     String userName = "user1";
     String psw = "123456";
 

@@ -11,7 +11,7 @@ import javax.validation.constraints.NotNull;
  * @author tuzi
  * @date 2021年11月14日 16:45
  */
-@Entity(name = "user_lzy")
+@Entity(name = "user")
 public class UserLzy {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
