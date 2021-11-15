@@ -10,7 +10,6 @@ import org.tf.web.backend.mapper.UserMapper;
 @Service("helloService")
 public class HelloServiceimpl implements HelloService {
 
-    //似乎在DAO上加@Mapper就不会报错
     @Autowired
     private UserMapper userMapper;
 
