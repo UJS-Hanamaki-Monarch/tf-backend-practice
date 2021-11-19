@@ -1,0 +1,17 @@
+server:
+  port: 8080
+spring:
+  #数据库连接配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/tf_backend?characterEncoding=utf-8&useSSL=false
+    username: root
+    password: 123
+
+mybatis:
+  type-aliases-package: com.example.domain.model
+  type-handlers-package: com.example.typehandler
+  configuration:
+    map-underscore-to-camel-case: true
+    default-fetch-size: 100
+    default-statement-timeout: 30
