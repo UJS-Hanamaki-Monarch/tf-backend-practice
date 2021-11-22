@@ -9,6 +9,9 @@ import javax.validation.constraints.NotNull;
 
 @Data
 public class LoginDTO {
+
+    private String token;
+
     @NotNull
     private String username;
     @NotNull

@@ -2,6 +2,7 @@ package org.tf.web.backend.entity;
 
 
 public class Login {
+    private String token;
     private String name;
     private String psw;
 
@@ -20,4 +21,13 @@ public class Login {
     public void setPsw(String psw) {
         this.psw = psw;
     }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
 }
