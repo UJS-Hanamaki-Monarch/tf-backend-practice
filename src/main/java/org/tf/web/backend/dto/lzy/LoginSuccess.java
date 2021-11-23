@@ -1,4 +1,4 @@
-package org.tf.web.backend.dto;
+package org.tf.web.backend.dto.lzy;
 
 import org.springframework.beans.factory.annotation.Value;
 
@@ -10,30 +10,20 @@ import javax.validation.constraints.NotNull;
  * @date 2021年11月14日 16:52
  */
 
-public class LoginLzySuccess {
+public class LoginSuccess {
     @NotNull
-    private  Integer id;
-    @Value(value = "Unregistered")
-    private String username;
+    private  Integer uuid;
     @Value("this is token, but I don't know how to write")
     private String token;
     @Value("false")
     private String state;
 
-    public Integer getId() {
-        return id;
+    public Integer getUuid() {
+        return uuid;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUuid(Integer uuid) {
+        this.uuid = uuid;
     }
 
     public String getToken() {
@@ -54,9 +44,8 @@ public class LoginLzySuccess {
 
     @Override
     public String toString() {
-        return "LoginLzySuccess{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
+        return "LoginSuccess{" +
+                "uuid=" + uuid +
                 ", token='" + token + '\'' +
                 ", state='" + state + '\'' +
                 '}';
