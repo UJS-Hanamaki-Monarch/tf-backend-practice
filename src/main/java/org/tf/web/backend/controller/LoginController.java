@@ -20,5 +20,4 @@ public class LoginController {
         }
         return new UserLogin(userName, ifSuccess);
     }
-
 }
