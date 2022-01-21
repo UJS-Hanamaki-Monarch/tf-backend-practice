@@ -13,6 +13,6 @@ import lombok.Data;
 
 @Data
 public class LoginVo {
-    private String phoneNumber;
+    private String username;
     private String password;
 }
