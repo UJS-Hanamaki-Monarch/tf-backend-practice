@@ -1,0 +1,54 @@
+---
+swagger: "2.0"
+info:
+  version: "0.0.1"
+  title: "Backend Portal"
+host: "localhost"
+basePath: "/portal"
+schemes:
+  - "http"
+paths:
+  /member/info:
+    get:
+      produces:
+        - "application/json"
+      responses:
+        "200":
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/MemberInfo"
+      x-amazon-apigateway-integration:
+        type: "aws_proxy"
+        httpMethod: "POST"
+        uri: "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:095128183318:function:sam-bookmark-app-listBookmarks/invocations"
+        passthroughBehavior: "when_no_match"
+definitions:
+  MemberInfo:
+    type: "object"
+    properties:
+      code:
+        type: "number"
+        example: 200
+      message:
+        type: "string"
+        example: "get member info success"
+      data:
+        type: "array"
+        items:
+          type: "object"
+          properties:
+            id:
+              type: "string"
+              example: '0000-0000-000000000000-0000'
+            nickName:
+              type: "string"
+              example: 'Chuck'
+            grade:
+              type: "number"
+              example: 2021
+            brief:
+              type: "string"
+              example: "不悔梦归处，只恨太匆匆"
+            icon:
+              type: "string"
+              example: "http://host/any/path/icon.png"
