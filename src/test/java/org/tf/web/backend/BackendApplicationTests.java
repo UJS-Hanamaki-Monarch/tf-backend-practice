@@ -3,12 +3,16 @@ package org.tf.web.backend;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.tf.web.backend.dao.MemberRepository;
 import org.tf.web.backend.dto.lzy.JsonData;
 
-import static org.tf.web.backend.utils.lzy.TestJSON.generateJsonData;
+import static org.tf.web.backend.utils.TestJSON.generateJsonData;
 
 @SpringBootTest
+@EnableJpaRepositories
 class BackendApplicationTests {
     /**
      * 联系org.json.jsonObject的使用
@@ -35,6 +39,14 @@ class BackendApplicationTests {
 
     public static void main(String[] args) {
 
+    }
+
+    @Autowired
+    private MemberRepository memberRepository;
+
+    @Test
+    public void testmemberRepository() {
+        System.out.println(memberRepository.findByNickName("tuzi"));
     }
 
 }

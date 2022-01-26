@@ -1,4 +1,4 @@
-package org.tf.web.backend.service.lzy;
+package org.tf.web.backend.service;
 
 import org.tf.web.backend.dto.lzy.LoginSuccessDTO;
 
