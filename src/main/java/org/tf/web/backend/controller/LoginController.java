@@ -15,7 +15,7 @@ public class LoginController {
     @Autowired
     private BCryptPasswordEncoder encoder;
 
-    @PostMapping("/lzy/login")
+    @PostMapping("/login")
     public LoginSuccessDTO loginCheck(@RequestBody LoginVo loginVo) {
         String username = loginVo.getUsername();
         String passowrd = loginVo.getPassword();
@@ -33,7 +33,7 @@ public class LoginController {
      * @param loginVo
      * @return
      */
-    @PostMapping(path = "/lzy/register")
+    @PostMapping(path = "/register")
     public String add(@RequestBody LoginVo loginVo) {
         // 加密密码
         return encoder.encode(loginVo.getPassword());
