@@ -1,10 +1,10 @@
-package org.tf.web.backend.controller.lzy;
+package org.tf.web.backend.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.tf.web.backend.dto.lzy.LoginSuccessDTO;
-import org.tf.web.backend.service.lzy.LoginService;
+import org.tf.web.backend.service.LoginService;
 import org.tf.web.backend.vo.LoginVo;
 
 @RestController

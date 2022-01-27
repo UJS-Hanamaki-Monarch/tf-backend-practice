@@ -1,4 +1,4 @@
-package org.tf.web.backend.po.lzy;
+package org.tf.web.backend.po;
 
 import lombok.*;
 import org.hibernate.Hibernate;

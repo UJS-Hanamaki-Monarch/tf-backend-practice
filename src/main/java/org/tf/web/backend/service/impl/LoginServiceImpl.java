@@ -1,12 +1,13 @@
-package org.tf.web.backend.service.lzy;
+package org.tf.web.backend.service.impl;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
-import org.tf.web.backend.dao.lzy.UserRepository;
+import org.tf.web.backend.dao.UserRepository;
 import org.tf.web.backend.dto.lzy.LoginSuccessDTO;
+import org.tf.web.backend.service.LoginService;
 
 /**
  * @author tuzi

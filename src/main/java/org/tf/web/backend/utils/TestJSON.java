@@ -1,4 +1,4 @@
-package org.tf.web.backend.utils.lzy;
+package org.tf.web.backend.utils;
 
 import org.tf.web.backend.dto.lzy.JsonBody;
 import org.tf.web.backend.dto.lzy.JsonData;
