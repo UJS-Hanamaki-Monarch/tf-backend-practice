@@ -15,7 +15,7 @@ public class HelloController {
         this.helloService = helloService;
     }
 
-    @GetMapping("/hello/{username}")
+    @GetMapping("/{username}")
     public String hello(@PathVariable("username")String username){
         return "hello " + username + " !";
     }

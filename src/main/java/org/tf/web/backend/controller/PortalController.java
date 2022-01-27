@@ -11,7 +11,7 @@ import org.tf.web.backend.service.MemberService;
  * @date 2022年01月26日 17:35
  */
 @RestController
-public class MemberController {
+public class PortalController {
     @Autowired
     private MemberService memberService;
 

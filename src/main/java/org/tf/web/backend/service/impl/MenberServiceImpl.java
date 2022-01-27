@@ -6,11 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.tf.web.backend.dao.MemberRepository;
 import org.tf.web.backend.dto.MemberInfo;
-import org.tf.web.backend.dto.MemberInfoData;
 import org.tf.web.backend.service.MemberService;
 
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @author tuzi

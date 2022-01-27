@@ -1,9 +1,6 @@
 package org.tf.web.backend.dto;
 
 import lombok.Data;
-import org.springframework.beans.factory.annotation.Value;
-
-import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**

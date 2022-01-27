@@ -4,7 +4,7 @@ package org.tf.web.backend.dao;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
-import org.tf.web.backend.po.UserAuth;
+import org.tf.web.backend.entity.UserAuth;
 
 public interface UserRepository extends CrudRepository<UserAuth, Integer> {
 //    @Query("select uuid from user_auth where username=?1 and password=?2 ")
