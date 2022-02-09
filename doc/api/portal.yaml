@@ -36,7 +36,7 @@ paths:
           description: "a member object"
           required: true
           schema:
-            $ref: "#/definitions/AddBody"
+            $ref: "#/definitions/UserData"
       responses:
         default:
           description: "add success"
@@ -53,7 +53,7 @@ paths:
           description: "a member object"
           required: true
           schema:
-            $ref: "#/definitions/LoginInfo"
+            $ref: "#/definitions/LoginData"
       responses:
         "200":
           description: "200 response"
@@ -94,42 +94,41 @@ definitions:
             icon:
               type: "string"
               example: "http://host/any/path/icon.png"
-  AddBody:
-    type: "object"
-    properties:
-      id:
-        type: "string"
-        example: "0000-0000-000000000000-0000"
-      nickName:
-        type: "string"
-        example: 'Chuck'
-      grade:
-        type: "number"
-        example: 2021
-      brief:
-        type: "string"
-        example: "不悔梦归处，只恨太匆匆"
-      icon:
-        type: "string"
-        example: "http://host/any/path/icon.png"
-    xml:
-      name: "AddMember"
-
-  LoginInfo:
+  UserData:
     type: "object"
     properties:
       username:
         type: "string"
-        example: "login_accout"
-      password:
+        example: 'Chuck'
+      loginAccount:
+        type: "string"
+      grade:
+        type: "number"
+        example: 2021
+      loginPassowrd:
+        type: string
+      icon:
+        type: "string"
+        example: "http://host/any/path/icon.png"
+      motto:
+        type: "string"
+        example: "不悔梦归处，只恨太匆匆"
+    xml:
+      name: "AddMember"
+
+  LoginData:
+    type: "object"
+    properties:
+      loginAccount:
+        type: "string"
+      loginPassword:
         type: "string"
         example: "123456"
   LoginSuccessInfo:
     type: "object"
     properties:
-      id:
+      loginAccount:
         type: string
-        example: "0000-0000-000000000000-0000"
       token:
         type: string
       state:

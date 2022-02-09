@@ -8,6 +8,6 @@ import org.tf.web.backend.dto.MemberInfo;
  */
 
 public interface MemberService {
-    // TODO 添加注释说明方法的作用
+    // 获取成员信息列表
     MemberInfo ListMemberInfo();
 }
