@@ -4,12 +4,14 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCrypt;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.tf.web.backend.dao.UserRepository;
 import org.tf.web.backend.dto.LoginDTO;
 import org.tf.web.backend.dto.LoginSuccessDTO;
 import org.tf.web.backend.pojo.User;
 import org.tf.web.backend.service.LoginService;
+import org.tf.web.backend.vo.AddUserVO;
 
 /**
  * @author tuzi
@@ -19,6 +21,8 @@ import org.tf.web.backend.service.LoginService;
 public class LoginServiceImpl implements LoginService {
     @Autowired // 自动装填
     private UserRepository userRepositorys;
+    @Autowired
+    private BCryptPasswordEncoder encoder;
 
     /**
      * 用户登录验证
@@ -53,5 +57,18 @@ public class LoginServiceImpl implements LoginService {
         }
 
         return loginSuccess;
+    }
+
+    @Override
+    public String addUser(AddUserVO user) {
+        User user1 = new User();
+        user1.setAccount(user.getLoginAccount());
+        user1.setGrade(user.getGrade());
+        user1.setIcon(user.getIcon());
+        user1.setUsername(user.getUsername());
+        user1.setMotto(user.getMotto());
+        user1.setPassword(encoder.encode(user.getLoginPassword()));
+        userRepositorys.save(user1);
+        return "success";
     }
 }

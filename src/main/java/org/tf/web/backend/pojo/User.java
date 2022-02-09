@@ -1,11 +1,17 @@
 package org.tf.web.backend.pojo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 import org.hibernate.Hibernate;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.id.UUIDHexGenerator;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Date;
 import java.util.Objects;
 
 /**
@@ -19,6 +25,9 @@ import java.util.Objects;
 @RequiredArgsConstructor
 public class User {
     @Id
+    @GeneratedValue(generator = "UUIDHexGenerator")
+    @GenericGenerator(name="UUIDHexGenerator", strategy="uuid")
+    @Column(length = 32)
     private String id;
     private String username;
     @Column(name = "login_account")
@@ -28,6 +37,14 @@ public class User {
     private String password;
     private String icon;
     private String motto;
+    @Column(name="create_time")
+    @CreationTimestamp
+    @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss")
+    private Date createTime;
+    @Column(name="update_time")
+    @UpdateTimestamp
+    @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss")
+    private Date updateTime;
 
     @Override
     public boolean equals(Object o) {
