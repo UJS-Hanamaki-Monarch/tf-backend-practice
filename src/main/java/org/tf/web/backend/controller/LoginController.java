@@ -3,7 +3,7 @@ package org.tf.web.backend.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
-import org.tf.web.backend.dto.lzy.LoginSuccessDTO;
+import org.tf.web.backend.dto.LoginSuccessDTO;
 import org.tf.web.backend.service.LoginService;
 import org.tf.web.backend.vo.LoginVo;
 
@@ -17,12 +17,12 @@ public class LoginController {
 
     @PostMapping("/login")
     public LoginSuccessDTO loginCheck(@RequestBody LoginVo loginVo) {
-        String username = loginVo.getUsername();
-        String passowrd = loginVo.getPassword();
+        String loginAccount = loginVo.getLoginAccount();
+        String loginPassword = loginVo.getLoginPassword();
 
         LoginSuccessDTO loginSuccess = new LoginSuccessDTO();
 
-        loginSuccess = loginService.login(username, passowrd);
+        loginSuccess = loginService.login(loginAccount, loginPassword);
 
         return loginSuccess;
     }
@@ -36,6 +36,6 @@ public class LoginController {
     @PostMapping(path = "/register")
     public String add(@RequestBody LoginVo loginVo) {
         // 加密密码
-        return encoder.encode(loginVo.getPassword());
+        return encoder.encode(loginVo.getLoginPassword());
     }
 }

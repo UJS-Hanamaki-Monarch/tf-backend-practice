@@ -22,6 +22,48 @@ paths:
         httpMethod: "POST"
         uri: "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:095128183318:function:sam-bookmark-app-listBookmarks/invocations"
         passthroughBehavior: "when_no_match"
+  /member/add:
+    post:
+      tags:
+        - "member"
+      summary: "Add Member"
+      description: "This can only be done by the added member"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "a member object"
+          required: true
+          schema:
+            $ref: "#/definitions/UserData"
+      responses:
+        default:
+          description: "add success"
+  /member/login:
+    post:
+      tags:
+        - "member"
+      summary: "Log in"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "a member object"
+          required: true
+          schema:
+            $ref: "#/definitions/LoginData"
+      responses:
+        "200":
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/LoginSuccessInfo"
+      x-amazon-apigateway-integration:
+        type: "aws_proxy"
+        httpMethod: "POST"
+        uri: "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:095128183318:function:sam-bookmark-app-listBookmarks/invocations"
+        passthroughBehavior: "when_no_match"
 definitions:
   MemberInfo:
     type: "object"
@@ -52,3 +94,43 @@ definitions:
             icon:
               type: "string"
               example: "http://host/any/path/icon.png"
+  UserData:
+    type: "object"
+    properties:
+      username:
+        type: "string"
+        example: 'Chuck'
+      loginAccount:
+        type: "string"
+      grade:
+        type: "number"
+        example: 2021
+      loginPassowrd:
+        type: string
+      icon:
+        type: "string"
+        example: "http://host/any/path/icon.png"
+      motto:
+        type: "string"
+        example: "不悔梦归处，只恨太匆匆"
+    xml:
+      name: "AddMember"
+
+  LoginData:
+    type: "object"
+    properties:
+      loginAccount:
+        type: "string"
+      loginPassword:
+        type: "string"
+        example: "123456"
+  LoginSuccessInfo:
+    type: "object"
+    properties:
+      loginAccount:
+        type: string
+      token:
+        type: string
+      state:
+        type: string
+        example: "success"

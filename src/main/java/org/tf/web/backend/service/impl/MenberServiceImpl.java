@@ -6,7 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.tf.web.backend.dao.MemberRepository;
 import org.tf.web.backend.dto.MemberInfo;
+import org.tf.web.backend.dto.MemberInfoData;
+import org.tf.web.backend.pojo.User;
 import org.tf.web.backend.service.MemberService;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 
 /**
@@ -22,12 +28,20 @@ public class MenberServiceImpl implements MemberService {
     @Override
     public MemberInfo ListMemberInfo() {
         MemberInfo memberInfo = new MemberInfo();
-        ObjectMapper mapper = new ObjectMapper();
+        MemberInfoData infoData = new MemberInfoData();
+        List<MemberInfoData> dataList = new ArrayList<>();
+
+        for (User user : memberRepository.findAllMemberInfo()) {
+            infoData.setUsername(user.getUsername());
+            infoData.setGrade(user.getGrade());
+            infoData.setIcon(user.getIcon());
+            infoData.setMotto(user.getMotto());
+            dataList.add(infoData);
+        }
 
         memberInfo.setCode(200);
         memberInfo.setMessage("get member info success");
-        memberInfo.setData(memberRepository.findAllMemberInfo());
-
+        memberInfo.setData(dataList);
 
         return memberInfo;
     }

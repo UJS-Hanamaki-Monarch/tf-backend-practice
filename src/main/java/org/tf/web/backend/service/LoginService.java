@@ -1,6 +1,6 @@
 package org.tf.web.backend.service;
 
-import org.tf.web.backend.dto.lzy.LoginSuccessDTO;
+import org.tf.web.backend.dto.LoginSuccessDTO;
 
 /**
  * 用户登录发服务端接口
@@ -10,5 +10,6 @@ import org.tf.web.backend.dto.lzy.LoginSuccessDTO;
  */
 
 public interface LoginService {
+    // 登录
     LoginSuccessDTO login(String username, String password);
 }
