@@ -5,6 +5,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.tf.web.backend.dto.LoginSuccessDTO;
 import org.tf.web.backend.service.LoginService;
+import org.tf.web.backend.vo.AddUserVO;
 import org.tf.web.backend.vo.LoginVo;
 
 @RestController
@@ -38,4 +39,10 @@ public class LoginController {
         // 加密密码
         return encoder.encode(loginVo.getLoginPassword());
     }
+
+    @PostMapping("/member/add")
+    public String add(@RequestBody AddUserVO user) {
+        return loginService.addUser(user);
+    }
+
 }

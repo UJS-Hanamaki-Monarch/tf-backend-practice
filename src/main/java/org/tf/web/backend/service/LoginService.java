@@ -1,6 +1,7 @@
 package org.tf.web.backend.service;
 
 import org.tf.web.backend.dto.LoginSuccessDTO;
+import org.tf.web.backend.vo.AddUserVO;
 
 /**
  * 用户登录发服务端接口
@@ -12,4 +13,6 @@ import org.tf.web.backend.dto.LoginSuccessDTO;
 public interface LoginService {
     // 登录
     LoginSuccessDTO login(String username, String password);
+    // 添加用户
+    String addUser(AddUserVO user);
 }
