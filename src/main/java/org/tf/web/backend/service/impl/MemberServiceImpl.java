@@ -1,6 +1,5 @@
 package org.tf.web.backend.service.impl;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,7 +10,6 @@ import org.tf.web.backend.pojo.User;
 import org.tf.web.backend.service.MemberService;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 
@@ -20,7 +18,7 @@ import java.util.List;
  * @date 2022年01月26日 18:10
  */
 @Service
-public class MenberServiceImpl implements MemberService {
+public class MemberServiceImpl implements MemberService {
     @Autowired
     private MemberRepository memberRepository;
 
