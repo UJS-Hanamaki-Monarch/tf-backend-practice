@@ -7,7 +7,6 @@ import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.tf.web.backend.dao.UserRepository;
-import org.tf.web.backend.dto.LoginDTO;
 import org.tf.web.backend.dto.LoginSuccessDTO;
 import org.tf.web.backend.pojo.User;
 import org.tf.web.backend.service.LoginService;
@@ -19,7 +18,7 @@ import org.tf.web.backend.vo.AddUserVO;
  */
 @Service
 public class LoginServiceImpl implements LoginService {
-    @Autowired // 自动装填
+    @Autowired
     private UserRepository userRepositorys;
     @Autowired
     private BCryptPasswordEncoder encoder;
@@ -55,12 +54,15 @@ public class LoginServiceImpl implements LoginService {
             loginSuccess.setLoginAccount(loginAccount);
             loginSuccess.setToken(token);
         }
+        // TODO 失败返回
 
         return loginSuccess;
     }
 
     @Override
     public String addUser(AddUserVO user) {
+        // TODO 代码优化，新增构造函数
+        // TODO LoginAccount需要判断是否重复再进行插入
         User user1 = new User();
         user1.setAccount(user.getLoginAccount());
         user1.setGrade(user.getGrade());
