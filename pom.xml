@@ -128,10 +128,10 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M5</version>
                 <configuration>
-                  <parallel>methods</parallel>
-                  <threadCount>10</threadCount>
+                    <parallel>methods</parallel>
+                    <threadCount>10</threadCount>
                 </configuration>
-              </plugin>
+            </plugin>
         </plugins>
     </build>
 

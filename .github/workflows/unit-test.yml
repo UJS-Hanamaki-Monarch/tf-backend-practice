@@ -10,5 +10,5 @@ jobs:
           distribution: 'zulu' # See 'Supported distributions' for available options
           java-version: '8'
           cache: 'maven'
-      - run: mvn clean package
+      - run: mvn -V
       
