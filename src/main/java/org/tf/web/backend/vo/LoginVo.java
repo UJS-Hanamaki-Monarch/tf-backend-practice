@@ -1,6 +1,8 @@
 package org.tf.web.backend.vo;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * vo：视图层对象
@@ -12,6 +14,8 @@ import lombok.Data;
  */
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class LoginVo {
     private String loginAccount;
     private String loginPassword;
