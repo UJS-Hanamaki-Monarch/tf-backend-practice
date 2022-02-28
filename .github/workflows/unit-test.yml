@@ -1,5 +1,5 @@
 name: Auto Run Unit Tests
-on: [push, pull_request]
+on: [pull_request]
 jobs:
   Auto-Run-Unit-Tests:
     runs-on: ubuntu-latest
