@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:DBName;DB_CLOSE_DELAY=-1
+  h2:
+    console:
+      enabled: false
