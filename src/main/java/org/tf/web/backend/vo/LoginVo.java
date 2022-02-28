@@ -1,8 +1,5 @@
 package org.tf.web.backend.vo;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 /**
  * vo：视图层对象
@@ -13,10 +10,31 @@ import lombok.NoArgsConstructor;
  * @date 2021年11月21日 8:58
  */
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class LoginVo {
     private String loginAccount;
     private String loginPassword;
+
+    public String getLoginAccount() {
+        return loginAccount;
+    }
+
+    public void setLoginAccount(String loginAccount) {
+        this.loginAccount = loginAccount;
+    }
+
+    public String getLoginPassword() {
+        return loginPassword;
+    }
+
+    public void setLoginPassword(String loginPassword) {
+        this.loginPassword = loginPassword;
+    }
+
+    public LoginVo() {
+    }
+
+    public LoginVo(String loginAccount, String loginPassword) {
+        this.loginAccount = loginAccount;
+        this.loginPassword = loginPassword;
+    }
 }

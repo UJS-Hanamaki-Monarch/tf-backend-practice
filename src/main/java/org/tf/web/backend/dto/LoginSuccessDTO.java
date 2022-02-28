@@ -1,9 +1,5 @@
 package org.tf.web.backend.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import org.springframework.beans.factory.annotation.Value;
 
 import javax.validation.constraints.NotNull;
@@ -13,9 +9,6 @@ import javax.validation.constraints.NotNull;
  * @author tuzi
  * @date 2021年11月14日 16:52
  */
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class LoginSuccessDTO {
     
     @NotNull
@@ -26,4 +19,37 @@ public class LoginSuccessDTO {
 
     @Value("false")
     private String state;
+
+    public String getLoginAccount() {
+        return loginAccount;
+    }
+
+    public void setLoginAccount(String loginAccount) {
+        this.loginAccount = loginAccount;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public LoginSuccessDTO() {
+    }
+
+    public LoginSuccessDTO(String loginAccount, String token, String state) {
+        this.loginAccount = loginAccount;
+        this.token = token;
+        this.state = state;
+    }
 }

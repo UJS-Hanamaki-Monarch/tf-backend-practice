@@ -1,6 +1,5 @@
 package org.tf.web.backend.service.impl;
 
-import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.tf.web.backend.dao.MemberRepository;
@@ -22,7 +21,6 @@ public class MemberServiceImpl implements MemberService {
     @Autowired
     private MemberRepository memberRepository;
 
-    @SneakyThrows
     @Override
     public MemberInfo ListMemberInfo() {
         MemberInfo memberInfo = new MemberInfo();

@@ -1,6 +1,5 @@
 package org.tf.web.backend.dto;
 
-import lombok.*;
 import org.springframework.beans.factory.annotation.Value;
 import javax.persistence.Column;
 import javax.validation.constraints.NotNull;
@@ -10,7 +9,6 @@ import javax.validation.constraints.NotNull;
  * @date 2022年01月26日 17:40
  */
 
-@Data
 public class MemberInfoData {
     @NotNull
     @Column(name = "username")
@@ -22,4 +20,36 @@ public class MemberInfoData {
     private String motto;
     @NotNull
     private String icon;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public Integer getGrade() {
+        return grade;
+    }
+
+    public void setGrade(Integer grade) {
+        this.grade = grade;
+    }
+
+    public String getMotto() {
+        return motto;
+    }
+
+    public void setMotto(String motto) {
+        this.motto = motto;
+    }
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
 }
