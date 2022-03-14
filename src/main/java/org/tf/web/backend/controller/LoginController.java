@@ -37,6 +37,7 @@ public class LoginController {
     @PostMapping(path = "/register")
     public String add(@RequestBody LoginVo loginVo) {
         // 加密密码
+        // 呜啦啦啦
         return encoder.encode(loginVo.getLoginPassword());
     }
 
