@@ -38,8 +38,14 @@ paths:
           schema:
             $ref: "#/definitions/UserData"
       responses:
-        default:
+        "200":
           description: "add success"
+          schema:
+            $ref: "#/definitions/AddSuccessInfo"
+        "400":
+          description: "fail to add"
+          schema:
+            $ref: "#/definitions/AddFailedInfo"
   /member/login:
     post:
       tags:
@@ -59,6 +65,11 @@ paths:
           description: "200 response"
           schema:
             $ref: "#/definitions/LoginSuccessInfo"
+        "400":
+          description: "invalid username or password"
+          schema:
+            $ref: "#/definitions/LoginFailedInfo"
+
       x-amazon-apigateway-integration:
         type: "aws_proxy"
         httpMethod: "POST"
@@ -127,10 +138,69 @@ definitions:
   LoginSuccessInfo:
     type: "object"
     properties:
-      loginAccount:
-        type: string
-      token:
-        type: string
-      state:
-        type: string
-        example: "success"
+      code:
+        type: "number"
+        example: 200
+      message:
+        type: "string"
+        example: "Login success"
+      data:
+        type: "object"
+        properties:
+          loginAccount:
+            type: "string"
+          token:
+            type: "string"
+          state:
+            type: "string"
+            example: "success"
+
+  LoginFailedInfo:
+    type: "object"
+    properties:
+      code:
+        type: "number"
+        example: "400"
+      message:
+        type: "string"
+        example: "login failed with invalid username or password"
+      data:
+        type: "object"
+        properties:
+          detail:
+            type: "string"
+            example: "user doesn't exits / invalid password"
+
+  AddSuccessInfo:
+    type: "object"
+    properties:
+      code:
+        type: "number"
+        example: "200"
+      message:
+        type: "string"
+        example: "add success"
+      data:
+        type: "object"
+        properties:
+          details:
+            type: "string"
+            example: "add success"
+
+  AddFailedInfo:
+    type: "object"
+    properties:
+      code:
+        type: "number"
+        example: 400
+      message:
+        type: "string"
+        example: "add failed"
+      data:
+        type: "object"
+        properties:
+          details:
+            type: "string"
+            example: "user exists / invalid username or password"
+
+
