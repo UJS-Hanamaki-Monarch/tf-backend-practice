@@ -1,0 +1,144 @@
+---
+swagger: "2.0"
+info:
+  version: "0.0.1"
+  title: "Backend Bucket Update/Download API Document"
+host: "localhost"
+basePath: "/bucket"
+schemes:
+  - "http"
+paths:
+  /bucket/update:
+    post:
+      tags:
+        - "bucket"
+      summary: "get update token"
+      description: "客户端获取图床上传凭证"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "imageKey"
+          description: "image key"
+          required: true
+          schema:
+            $ref: "#/definitions/imageKey"
+      responses:
+        "200":
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/updateToken"
+        "400":
+          description: "400 response"
+          schema:
+            $ref: "#/definitions/fail"
+  /bucket/download:
+    post:
+      tags:
+        - "bucket"
+      summary: "download image url"
+      description: "获取用户请求下载的图片的URL"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "image key"
+          required: true
+          schema:
+            $ref: "#/definitions/imageKey"
+      responses:
+        "200":
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/downloadUrl"
+        "400":
+          description: "400 response"
+          schema:
+            $ref: "#/definitions/fail"
+  /bucket/callbackUpdateImage:
+    get:
+      tags:
+        - "bucket"
+      summary: "update image success callback"
+      description: ""
+      produces:
+        - "application/xml"
+        - "application/json"
+      parameters:
+        - name: "body"
+          in: "body"
+          description: "The is image key"
+          required: true
+          schema:
+            $ref: "#/definitions/callback"
+      responses:
+        "201":
+          description: "201 response"
+definitions:
+  updateToken:
+    type: "object"
+    properties:
+      code:
+        type: "number"
+        example: 200
+      message:
+        type: "string"
+        example: "image update token"
+      data:
+        type: "array"
+        items:
+          type: "object"
+          properties:
+            updateToken:
+              type: "string"
+  fail:
+    type: "object"
+    properties:
+      code:
+        type: "number"
+        example: 400
+      message:
+        type: "string"
+        example: "image update token get failed"
+      data:
+        type: "array"
+        items:
+          type: "object"
+          properties:
+            fail:
+              type: "string"
+  downloadUrl:
+    type: "object"
+    properties:
+      code:
+        type: "number"
+        example: 200
+      message:
+        type: "string"
+        example: "return image download URL"
+      data:
+        type: "array"
+        items:
+          type: "object"
+          properties:
+            callback:
+              type: "string"
+  imageKey:
+    type: "object"
+    properties:
+      key:
+        type: "string"
+  callback:
+    type: "object"
+    properties:
+      hash:
+        type: "string"
+      key:
+        type: "string"
+      bucket:
+        type: "string"
+      fileName:
+        type: "string"
+      fsize:
+        type: "string"
