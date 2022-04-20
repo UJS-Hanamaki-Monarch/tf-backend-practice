@@ -53,8 +53,8 @@ public class PortalServicesTests {
         assertEquals("success", loginInfo.getState());
     }
 
-    @Test
-    public void testUpdate() {
-        service.updateImage("D://test.jpg");
-    }
+//    @Test
+//    public void testUpdate() {
+//        service.updateImage("D://test.jpg");
+//    }
 }
