@@ -12,7 +12,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.tf.web.backend.controller.LoginController;
+import org.tf.web.backend.dao.BucketRepository;
 import org.tf.web.backend.dao.UserRepository;
+import org.tf.web.backend.dto.BucketCallbackDTO;
 import org.tf.web.backend.dto.LoginSuccessDTO;
 import org.tf.web.backend.pojo.User;
 import org.tf.web.backend.service.BucketService;
@@ -53,8 +55,17 @@ public class PortalServicesTests {
         assertEquals("success", loginInfo.getState());
     }
 
-//    @Test
-//    public void testUpdate() {
-//        service.updateImage("D://test.jpg");
-//    }
+    @Autowired
+    BucketRepository bucketRepository;
+    @Autowired
+    BucketService bucketService;
+    @Test
+    public void testUpdate() {
+        BucketCallbackDTO dto = new BucketCallbackDTO();
+        dto.setHash("test");
+        dto.setKey("test");
+        dto.setName("test");
+        dto.setFsize("test");
+        bucketService.handleCallback(dto);
+    }
 }

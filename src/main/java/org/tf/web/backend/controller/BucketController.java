@@ -67,16 +67,14 @@ public class BucketController {
         return response.toJSONString();
     }
 
-    @GetMapping("/bucket/callbackUpdateImage")
+    @PostMapping("/bucket/callbackUpdateImage")
     public void handleCallbackData(@RequestBody String data) {
         JSONObject jsonObject = JSON.parseObject(data);
         BucketCallbackDTO callback = new BucketCallbackDTO();
         callback.setHash(jsonObject.getString("hash"));
         callback.setKey(jsonObject.getString("key"));
-        callback.setFsize(jsonObject.getString("fSize"));
         callback.setName(jsonObject.getString("name"));
+        callback.setFsize(jsonObject.getString("fSize"));
         bucketService.handleCallback(callback);
-        System.out.println(jsonObject);
-        System.out.println("get callback");
     }
 }

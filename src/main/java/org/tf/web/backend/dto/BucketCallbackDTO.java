@@ -1,7 +1,7 @@
 package org.tf.web.backend.dto;
 
 import org.hibernate.annotations.GenericGenerator;
-
+import org.hibernate.Hibernate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,8 +18,9 @@ public class BucketCallbackDTO {
     @GeneratedValue(generator = "UUIDHexGenerator")
     @GenericGenerator(name="UUIDHexGenerator", strategy="uuid")
     @Column(length = 32)
-    private Integer id;
+    private String id;
     private String hash;
+    @Column(name = "image_key")
     private String key;
     private String name;
     private String fsize;
@@ -27,7 +28,7 @@ public class BucketCallbackDTO {
     public BucketCallbackDTO() {
     }
 
-    public BucketCallbackDTO(Integer id, String hash, String key, String name, String fsize) {
+    public BucketCallbackDTO(String id, String hash, String key, String name, String fsize) {
         this.id = id;
         this.hash = hash;
         this.key = key;
@@ -35,11 +36,11 @@ public class BucketCallbackDTO {
         this.fsize = fsize;
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -77,8 +78,8 @@ public class BucketCallbackDTO {
 
     @Override
     public String toString() {
-        return "BucketFCallbackDTO{" +
-                "id=" + id +
+        return "BucketCallbackDTO{" +
+                "id='" + id + '\'' +
                 ", hash='" + hash + '\'' +
                 ", key='" + key + '\'' +
                 ", name='" + name + '\'' +

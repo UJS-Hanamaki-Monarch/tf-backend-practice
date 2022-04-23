@@ -63,6 +63,7 @@ public class BucketServiceImpl implements BucketService {
             FileInfo fileInfo = bucketManager.stat(bucket, fileName);
             System.out.println(fileInfo.hash);
             System.out.println(fileInfo.fsize);
+            System.out.println(fileInfo.key);
             System.out.println(fileInfo.mimeType);
             System.out.println(fileInfo.putTime);
 
