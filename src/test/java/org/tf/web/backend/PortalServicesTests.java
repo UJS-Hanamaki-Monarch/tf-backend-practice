@@ -55,17 +55,17 @@ public class PortalServicesTests {
         assertEquals("success", loginInfo.getState());
     }
 
-    @Autowired
-    BucketRepository bucketRepository;
-    @Autowired
-    BucketService bucketService;
-    @Test
-    public void testUpdate() {
-        BucketCallbackDTO dto = new BucketCallbackDTO();
-        dto.setHash("test");
-        dto.setKey("test");
-        dto.setName("test");
-        dto.setFsize("test");
-        bucketService.handleCallback(dto);
-    }
+//    @Autowired
+//    BucketRepository bucketRepository;
+//    @Autowired
+//    BucketService bucketService;
+//    @Test
+//    public void testUpdate() {
+//        BucketCallbackDTO dto = new BucketCallbackDTO();
+//        dto.setHash("test");
+//        dto.setKey("test");
+//        dto.setName("test");
+//        dto.setFsize("test");
+//        bucketService.handleCallback(dto);
+//    }
 }
